@@ -17,8 +17,8 @@ describe('github auth', () => {
   it('/api/v1/github/login should redirect to the github oauth page', async () => {
     const res = await request(app).get('/api/v1/github/login');
     expect(res.header.location).toMatch(
-        `https://github.com/login/oauth/authorize?client_id=${process.env.GH_CLIENT_ID}&scope=user&redirect_uri=${process.env.GH_REDIRECT_URI}`
-        );
+      `https://github.com/login/oauth/authorize?client_id=${process.env.GH_CLIENT_ID}&scope=user&redirect_uri=${process.env.GH_REDIRECT_URI}`
+    );
   });
 
   it('/api/v1/github/callback should login users and redirect to dashboard', async () => {
